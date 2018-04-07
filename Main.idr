@@ -10,9 +10,22 @@ setTimeout f millies = do
                     (MkJsFn f) millies
   pure $ MkTimeout timeout
 
+div : IO' (MkFFI JS_Types String String) Ptr
+div = do
+  jscall "document.createElement(%0)"
+    (String -> JS_IO Ptr)
+    "div"
+
+insertAfterBody : Ptr -> IO' (MkFFI JS_Types String String) ()
+insertAfterBody = do
+  jscall "document.body.appendChild(%0)"
+    (Ptr -> JS_IO ())
+
 main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
+  myDiv <- div
+  insertAfterBody myDiv
   pure ()
 
 -- Local Variables:

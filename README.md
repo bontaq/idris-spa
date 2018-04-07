@@ -2,6 +2,10 @@
 
 ### Building
 
+```bash
+idris --codegen Javascript -p idrisscript Main.idr -o Main.html
+```
+
 ### Emacs
 
 * Need to update emacs exec path with:
