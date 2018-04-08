@@ -10,11 +10,52 @@ setTimeout f millies = do
                     (MkJsFn f) millies
   pure $ MkTimeout timeout
 
-div : IO' (MkFFI JS_Types String String) Ptr
-div = do
+data Attribute msg
+data Html msg
+
+record Node where
+  constructor MkNode
+  type : String
+  attributes : List ((String, String))
+  children : List Node
+
+-- internal representation for virtual dom
+-- node : String -> List ((String, String)) -> List Node -> Node
+-- node = MkNode
+
+-- should just call node
+-- div : IO' (MkFFI JS_Types String String) Ptr
+-- div = do
+--   jscall "document.createElement(%0)"
+--     (String -> JS_IO Ptr)
+--     "div"
+
+div : List (String, String) -> List Node -> Node
+div = MkNode "div"
+
+text : Node
+text = MkNode "text" [] []
+
+create : String -> IO' (MkFFI JS_Types String String) Ptr
+create "div" = do
   jscall "document.createElement(%0)"
     (String -> JS_IO Ptr)
     "div"
+create "text" = do
+  jscall "document.createTextNode(%0)"
+    (String -> JS_IO Ptr)
+    "text"
+
+render : Node -> List(IO' (MkFFI JS_Types String String) ())
+render node = do
+  let type = type node
+  ptr <- create type
+  let attributes = node
+  -- apply attributes
+  let children = children node
+  -- map render children
+
+  pure List ()
 
 insertAfterBody : Ptr -> IO' (MkFFI JS_Types String String) ()
 insertAfterBody = do
@@ -24,8 +65,9 @@ insertAfterBody = do
 main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
-  myDiv <- div
-  insertAfterBody myDiv
+  let mine : Node = div [] []
+  -- myDiv <- div
+  -- insertAfterBody myDiv
   pure ()
 
 -- Local Variables:
