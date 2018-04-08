@@ -65,6 +65,7 @@ main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   let mine : Node = div [] []
+  render mine
   -- myDiv <- div
   -- insertAfterBody myDiv
   pure ()

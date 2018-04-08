@@ -44,12 +44,101 @@ $JSRTS.prim_readStr = function () { return prompt('Prelude.getLine') };
 
 
 
+function $partial_0_2$Main__render(){
+    return (function(x1){
+        return (function(x2){
+            return Main__render(x1, x2);
+        });
+    });
+}
+
+function $partial_0_1$Main___123_create_95_1_125_(){
+    return (function(x1){
+        return Main___123_create_95_1_125_(x1);
+    });
+}
+
+function $partial_0_1$Main___123_create_95_2_125_(){
+    return (function(x1){
+        return Main___123_create_95_2_125_(x1);
+    });
+}
+
+function $partial_0_5$Main___123_render_95_4_125_(){
+    return (function(x1){
+        return (function(x2){
+            return (function(x3){
+                return (function(x4){
+                    return (function(x5){
+                        return Main___123_render_95_4_125_(x1, x2, x3, x4, x5);
+                    });
+                });
+            });
+        });
+    });
+}
+
+function $partial_0_1$Main___123_render_95_6_125_(){
+    return (function(x1){
+        return Main___123_render_95_6_125_(x1);
+    });
+}
+
+function $partial_1_2$Main___123_render_95_7_125_(x1){
+    return (function(x2){
+        return Main___123_render_95_7_125_(x1, x2);
+    });
+}
+
+function $partial_3_5$Main___123_render_95_8_125_(x1, x2, x3){
+    return (function(x4){
+        return (function(x5){
+            return Main___123_render_95_8_125_(x1, x2, x3, x4, x5);
+        });
+    });
+}
+
+function $partial_0_1$Main___123_render_95_9_125_(){
+    return (function(x1){
+        return Main___123_render_95_9_125_(x1);
+    });
+}
 
 const $HC_0_0$MkUnit = ({type: 0});
 const $HC_0_0$TheWorld = ({type: 0});
+function $HC_2_1$Prelude__List___58__58_($1, $2){
+    this.type = 1;
+    this.$1 = $1;
+    this.$2 = $2;
+}
+
 function $HC_1_1$IdrisScript__MkJSString($1){
     this.type = 1;
     this.$1 = $1;
+}
+
+function $HC_2_0$Main__MkNode($1, $2){
+    this.type = 0;
+    this.$1 = $1;
+    this.$2 = $2;
+}
+
+const $HC_0_0$Prelude__List__Nil = ({type: 0});
+// Main.create
+
+function Main__create($_0_arg){
+    
+    if(($_0_arg === "div")) {
+        return $partial_0_1$Main___123_create_95_1_125_();
+    } else if(($_0_arg === "text")) {
+        return $partial_0_1$Main___123_create_95_2_125_();
+    } else {
+        return new $JSRTS.Lazy((function(){
+            return (function(){
+                return Main___123_create_95_3_125_();
+            })();
+        }));
+    }
 }
 
 // IdrisScript.log
@@ -60,11 +149,109 @@ function IdrisScript__log($_0_arg, $_1_arg, $_2_w){
     return (console.log(($cg$1)));
 }
 
+// Main.main
+
+function Main__main($_0_in){
+    const $_1_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $_0_in);
+    const $_2_in = Main__render(new $HC_2_0$Main__MkNode("div", $HC_0_0$Prelude__List__Nil), $_0_in);
+    return $HC_0_0$MkUnit;
+}
+
+// Main.render
+
+function Main__render($_0_arg, $_1_in){
+    let $cg$1 = null;
+    $cg$1 = $_0_arg.$1;
+    const $_4_in = Main__create($cg$1)($_1_in);
+    let $cg$2 = null;
+    $cg$2 = $_0_arg.$2;
+    const $_85_in = Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $partial_3_5$Main___123_render_95_8_125_($_0_arg, $_1_in, $_4_in), $partial_0_1$Main___123_render_95_9_125_(), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $partial_0_2$Main__render(), $cg$2))($_1_in);
+    return $HC_0_0$MkUnit;
+}
+
+// Main.{create_1}
+
+function Main___123_create_95_1_125_($_0_lift){
+    return (document.createElement(("div")));
+}
+
+// Main.{create_2}
+
+function Main___123_create_95_2_125_($_0_lift){
+    return (document.createTextNode(("text")));
+}
+
+// Main.{create_3}
+
+function Main___123_create_95_3_125_(){
+    throw new Error(  "*** Main.idr:40:1-43:9:unmatched case in Main.create ***");
+}
+
+// Main.{render_4}
+
+function Main___123_render_95_4_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
+    const $_80_in = $_2_lift($_4_lift);
+    const $_81_in = $_3_lift($_4_lift);
+    return $_80_in($_81_in);
+}
+
+// Main.{render_5}
+
+function Main___123_render_95_5_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
+    return $partial_0_5$Main___123_render_95_4_125_();
+}
+
+// Main.{render_6}
+
+function Main___123_render_95_6_125_($_0_lift){
+    return $_0_lift;
+}
+
+// Main.{render_7}
+
+function Main___123_render_95_7_125_($_0_lift, $_1_lift){
+    const $_65_in = $_0_lift($_1_lift);
+    return $partial_0_1$Main___123_render_95_6_125_();
+}
+
+// Main.{render_8}
+
+function Main___123_render_95_8_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
+    return Main___123_render_95_5_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift)(null)(null)($partial_1_2$Main___123_render_95_7_125_($_3_lift))($_4_lift);
+}
+
+// Main.{render_9}
+
+function Main___123_render_95_9_125_($_0_lift){
+    return $HC_0_0$MkUnit;
+}
+
+// Prelude.Foldable.Prelude.List.List implementation of Prelude.Foldable.Foldable, method foldr
+
+function Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0($_0_arg, $_1_arg, $_2_arg, $_3_arg, $_4_arg){
+    
+    if(($_4_arg.type === 1)) {
+        return $_2_arg($_4_arg.$1)(Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $_2_arg, $_3_arg, $_4_arg.$2));
+    } else {
+        return $_3_arg;
+    }
+}
+
+// Prelude.Functor.Prelude.List.List implementation of Prelude.Functor.Functor, method map
+
+function Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0($_0_arg, $_1_arg, $_2_arg, $_3_arg){
+    
+    if(($_3_arg.type === 1)) {
+        return new $HC_2_1$Prelude__List___58__58_($_2_arg($_3_arg.$1), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $_2_arg, $_3_arg.$2));
+    } else {
+        return $_3_arg;
+    }
+}
+
 // {runMain_0}
 
 function $_0_runMain(){
-    const $_4_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $HC_0_0$TheWorld);
-    return $JSRTS.force($HC_0_0$MkUnit);
+    return $JSRTS.force(Main__main($HC_0_0$TheWorld));
 }
 
 
