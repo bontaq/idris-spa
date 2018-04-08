@@ -46,14 +46,24 @@ create "text" = do
     (String -> JS_IO Ptr)
     "text"
 
-render : Node -> IO' (MkFFI JS_Types String String) ()
-render node = do
+appendChild : Ptr -> Ptr -> JS_IO ()
+appendChild = do
+  jscall "(%0).appendChild(%1)"
+    (Ptr -> Ptr -> JS_IO ())
+
+render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
+render parent node = do
+  -- get ptr to created el
   let type = type node
   ptr <- create type
+
+  -- append
+  appendChild parent ptr
+
   let attributes = node
-  -- apply attributes
+
   let children = children node
-  sequence_ $ map render children
+  sequence_ $ map (render ptr) children
   pure ()
 
 insertAfterBody : Ptr -> IO' (MkFFI JS_Types String String) ()
@@ -61,13 +71,17 @@ insertAfterBody = do
   jscall "document.body.appendChild(%0)"
     (Ptr -> JS_IO ())
 
+getBody : JS_IO Ptr
+getBody = do
+  jscall "document.body"
+    (JS_IO Ptr)
+
 main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
-  let mine : Node = div [] []
-  render mine
-  -- myDiv <- div
-  -- insertAfterBody myDiv
+  let mine : Node = div [] [ text, div [] [ text ] ]
+  body <- getBody
+  render body mine
   pure ()
 
 -- Local Variables:
