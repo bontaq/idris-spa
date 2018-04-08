@@ -46,16 +46,15 @@ create "text" = do
     (String -> JS_IO Ptr)
     "text"
 
-render : Node -> List(IO' (MkFFI JS_Types String String) ())
+render : Node -> IO' (MkFFI JS_Types String String) ()
 render node = do
   let type = type node
   ptr <- create type
   let attributes = node
   -- apply attributes
   let children = children node
-  -- map render children
-
-  pure List ()
+  sequence_ $ map render children
+  pure ()
 
 insertAfterBody : Ptr -> IO' (MkFFI JS_Types String String) ()
 insertAfterBody = do

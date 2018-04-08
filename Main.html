@@ -52,18 +52,6 @@ function $HC_1_1$IdrisScript__MkJSString($1){
     this.$1 = $1;
 }
 
-// Main.div
-
-function Main__div($_0_w){
-    return (document.createElement(("div")));
-}
-
-// Main.insertAfterBody
-
-function Main__insertAfterBody($_0_x, $_1_w){
-    return (document.body.appendChild(($_0_x)));
-}
-
 // IdrisScript.log
 
 function IdrisScript__log($_0_arg, $_1_arg, $_2_w){
@@ -72,19 +60,11 @@ function IdrisScript__log($_0_arg, $_1_arg, $_2_w){
     return (console.log(($cg$1)));
 }
 
-// Main.main
-
-function Main__main($_0_in){
-    const $_1_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $_0_in);
-    const $_2_in = Main__div($_0_in);
-    const $_3_in = Main__insertAfterBody($_2_in, $_0_in);
-    return $HC_0_0$MkUnit;
-}
-
 // {runMain_0}
 
 function $_0_runMain(){
-    return $JSRTS.force(Main__main($HC_0_0$TheWorld));
+    const $_4_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $HC_0_0$TheWorld);
+    return $JSRTS.force($HC_0_0$MkUnit);
 }
 
 
