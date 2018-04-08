@@ -1,5 +1,6 @@
 module Main
 
+import Control.Monad.State
 import IdrisScript
 import IdrisScript.Timer
 
@@ -36,6 +37,9 @@ div = MkNode "div"
 text : Node
 text = MkNode "text" [] []
 
+button : Node
+button = MkNode "button" [] []
+
 create : String -> IO' (MkFFI JS_Types String String) Ptr
 create "div" = do
   jscall "document.createElement(%0)"
@@ -60,6 +64,7 @@ render parent node = do
   -- append
   appendChild parent ptr
 
+  -- apply attributes
   let attributes = node
 
   let children = children node
@@ -76,11 +81,19 @@ getBody = do
   jscall "document.body"
     (JS_IO Ptr)
 
+Count : Type
+Count = Integer
+
+connectedButton : State Count _
+connectedButton = do
+  count <- get
+  put count + 1
+
 main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
-  let mine : Node = div [] [ text, div [] [ text ] ]
   body <- getBody
+  let mine : Node = div [] [ text, button ]
   render body mine
   pure ()
 
