@@ -33,6 +33,16 @@ appendChild = do
   jscall "(%0).appendChild(%1)"
     (Ptr -> Ptr -> JS_IO ())
 
+helloWorld : IO' (MkFFI JS_Types String String) ()
+helloWorld =
+  log (toJS {from=String}{to=JSString} "hello world!")
+
+addEventListener : Ptr -> JS_IO () -> JS_IO ()
+addEventListener ptr f = do
+  jscall "(%0).addEventListener(\"click\", %1)"
+    (Ptr -> (JsFn (() -> JS_IO ()) -> JS_IO ()))
+    ptr (MkJsFn (\() => f))
+
 render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
 render parent node = do
   -- get ptr to created el
@@ -44,6 +54,7 @@ render parent node = do
 
   -- apply attributes
   let attributes = (attributes node)
+  addEventListener ptr helloWorld
 
   let children = children node
   sequence_ $ map (render ptr) children
@@ -58,7 +69,7 @@ main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   body <- getBody
-  let mine : Node = div [] [ text, button ]
+  let mine : Node = div [] [ text ]
   render body mine
 
   pure ()
