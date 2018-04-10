@@ -6,7 +6,7 @@ Before you can build `Main.idr`, make sure the deps are installed:
 ```bash
 git submodule init
 git submodule update
-cd deps
+cd deps/IdrisScript
 make install
 ```
 then
