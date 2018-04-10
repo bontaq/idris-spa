@@ -13,6 +13,7 @@ then
 ```bash
 idris --codegen Javascript -p idrisscript Main.idr -o Main.html
 ```
+you may also have to update your `PATH` to include wherever idrisscript was installed
 
 ### Emacs
 
