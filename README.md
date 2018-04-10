@@ -2,6 +2,14 @@
 
 ### Building
 
+Before you can build `Main.idr`, make sure the deps are installed:
+```bash
+git submodule init
+git submodule update
+cd deps
+make install
+```
+then
 ```bash
 idris --codegen Javascript -p idrisscript Main.idr -o Main.html
 ```
