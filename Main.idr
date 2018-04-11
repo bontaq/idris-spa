@@ -9,11 +9,11 @@ record Node where
   attributes : List ((String, String))
   children : List Node
 
-div : List (String, String) -> List Node -> Node
-div = MkNode "div"
+div : List Node -> Node
+div = MkNode "div" []
 
-text : Node
-text = MkNode "text" [] []
+text : String -> Node
+text s = MkNode "text" [("text", s)] []
 
 button : Node
 button = MkNode "button" [] []
@@ -23,10 +23,16 @@ create "div" = do
   jscall "document.createElement(%0)"
     (String -> JS_IO Ptr)
     "div"
-create "text" = do
+
+createText : List (String, String) -> IO' (MkFFI JS_Types String String) Ptr
+createText [] = do
   jscall "document.createTextNode(%0)"
     (String -> JS_IO Ptr)
-    "text"
+    "oops"
+createText [(_, t)] = do
+  jscall "document.createTextNode(%0)"
+    (String -> JS_IO Ptr)
+    t
 
 appendChild : Ptr -> Ptr -> JS_IO ()
 appendChild = do
@@ -47,13 +53,16 @@ render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
 render parent node = do
   -- get ptr to created el
   let type = type node
-  ptr <- create type
+  let attributes = (attributes node)
+
+  ptr <- case type of
+    "div" => create type
+    "text" => createText attributes
 
   -- append
   appendChild parent ptr
 
   -- apply attributes
-  let attributes = (attributes node)
   addEventListener ptr helloWorld
 
   let children = children node
@@ -69,7 +78,7 @@ main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   body <- getBody
-  let mine : Node = div [] [ text ]
+  let mine : Node = div [ text "sup" ]
   render body mine
 
   pure ()
