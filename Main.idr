@@ -3,17 +3,20 @@ module Main
 import Control.Monad.State
 import IdrisScript
 
+data Attr = Text String
+          | Listener String (JS_IO ())
+
 record Node where
   constructor MkNode
   type : String
-  attributes : List ((String, String))
+  attributes : List $ Attr
   children : List Node
 
-div : List Node -> Node
-div = MkNode "div" []
+div : List Attr -> List Node -> Node
+div = MkNode "div"
 
 text : String -> Node
-text s = MkNode "text" [("text", s)] []
+text s = MkNode "text" [ Text s ] []
 
 button : Node
 button = MkNode "button" [] []
@@ -24,12 +27,12 @@ create "div" = do
     (String -> JS_IO Ptr)
     "div"
 
-createText : List (String, String) -> IO' (MkFFI JS_Types String String) Ptr
+createText : List Attr -> IO' (MkFFI JS_Types String String) Ptr
 createText [] = do
   jscall "document.createTextNode(%0)"
     (String -> JS_IO Ptr)
     "oops"
-createText [(_, t)] = do
+createText [Text t] = do
   jscall "document.createTextNode(%0)"
     (String -> JS_IO Ptr)
     t
@@ -49,6 +52,18 @@ addEventListener ptr f = do
     (Ptr -> (JsFn (() -> JS_IO ()) -> JS_IO ()))
     ptr (MkJsFn (\() => f))
 
+applyAttributes : Ptr -> Attr -> JS_IO ()
+applyAttributes ptr attr = do
+  case attr of
+    Listener s fn =>
+      jscall "(%0).addEventListener(\"click\", %1)"
+        (Ptr -> (JsFn (() -> JS_IO ()) -> JS_IO ()))
+        ptr (MkJsFn (\() => fn))
+
+app : Ptr -> List Attr -> JS_IO ()
+app ptr [] = pure ()
+app ptr [a] = applyAttributes ptr a
+
 render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
 render parent node = do
   -- get ptr to created el
@@ -63,7 +78,8 @@ render parent node = do
   appendChild parent ptr
 
   -- apply attributes
-  addEventListener ptr helloWorld
+  case type of
+    "div" => app ptr attributes
 
   let children = children node
   sequence_ $ map (render ptr) children
@@ -78,7 +94,7 @@ main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   body <- getBody
-  let mine : Node = div [ text "sup" ]
+  let mine : Node = div [ Listener "onClick" helloWorld ] [ text "sup" ]
   render body mine
 
   pure ()
