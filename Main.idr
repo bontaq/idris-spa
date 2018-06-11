@@ -62,7 +62,7 @@ applyAttributes ptr attr = do
       (Ptr -> String -> JS_IO ())
       ptr s
     Style s =>
-      jscall "(%0).cssText = %1"
+      jscall "(%0).style.cssText = %1"
       (Ptr -> String -> JS_IO ())
       ptr s
 
