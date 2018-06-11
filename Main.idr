@@ -4,6 +4,7 @@ import IdrisScript
 
 data Attr = Text String
           | Listener String (JS_IO ())
+          | Style String
 
 record Node where
   constructor MkNode
@@ -60,10 +61,16 @@ applyAttributes ptr attr = do
       jscall "(%0).innerText = %1"
       (Ptr -> String -> JS_IO ())
       ptr s
+    Style s =>
+      jscall "(%0).cssText = %1"
+      (Ptr -> String -> JS_IO ())
+      ptr s
 
 app : Ptr -> List Attr -> JS_IO ()
 app ptr [] = pure ()
-app ptr [a] = applyAttributes ptr a
+app ptr (p::ps) = do
+ applyAttributes ptr p
+ app ptr ps
 
 --
 -- Core algorithm
@@ -98,7 +105,11 @@ main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   body <- getBody
-  let mine : Node = div [ Listener "onClick" helloWorld ] [ text "sup", text "another" ]
+  let mine : Node = div [
+   Listener "onClick" helloWorld
+   , Style "color: blue;"
+   ]
+   [ text "sup", text "another" ]
   render body mine
 
   pure ()
