@@ -50,9 +50,11 @@ function $partial_2_3$IdrisScript__log(x1, x2){
     });
 }
 
-function $partial_1_2$Main__render(x1){
+function $partial_1_3$Main__render(x1){
     return (function(x2){
-        return Main__render(x1, x2);
+        return (function(x3){
+            return Main__render(x1, x2, x3);
+        });
     });
 }
 
@@ -68,37 +70,25 @@ function $partial_1_2$Main___123_applyAttributes_95_4_125_(x1){
     });
 }
 
-function $partial_2_3$Main___123_applyAttributes_95_5_125_(x1, x2){
-    return (function(x3){
-        return Main___123_applyAttributes_95_5_125_(x1, x2, x3);
-    });
-}
-
-function $partial_0_1$Main___123_create_95_7_125_(){
+function $partial_0_1$Main___123_create_95_5_125_(){
     return (function(x1){
-        return Main___123_create_95_7_125_(x1);
+        return Main___123_create_95_5_125_(x1);
     });
 }
 
-function $partial_1_2$Main___123_createText_95_9_125_(x1){
-    return (function(x2){
-        return Main___123_createText_95_9_125_(x1, x2);
-    });
-}
-
-function $partial_0_1$Main___123_createText_95_12_125_(){
+function $partial_0_1$Main___123_create_95_6_125_(){
     return (function(x1){
-        return Main___123_createText_95_12_125_(x1);
+        return Main___123_create_95_6_125_(x1);
     });
 }
 
-function $partial_0_5$Main___123_render_95_22_125_(){
+function $partial_0_5$Main___123_render_95_12_125_(){
     return (function(x1){
         return (function(x2){
             return (function(x3){
                 return (function(x4){
                     return (function(x5){
-                        return Main___123_render_95_22_125_(x1, x2, x3, x4, x5);
+                        return Main___123_render_95_12_125_(x1, x2, x3, x4, x5);
                     });
                 });
             });
@@ -106,29 +96,23 @@ function $partial_0_5$Main___123_render_95_22_125_(){
     });
 }
 
-function $partial_0_1$Main___123_render_95_24_125_(){
+function $partial_0_1$Main___123_render_95_14_125_(){
     return (function(x1){
-        return Main___123_render_95_24_125_(x1);
+        return Main___123_render_95_14_125_(x1);
     });
 }
 
-function $partial_1_2$Main___123_render_95_25_125_(x1){
+function $partial_1_2$Main___123_render_95_15_125_(x1){
     return (function(x2){
-        return Main___123_render_95_25_125_(x1, x2);
+        return Main___123_render_95_15_125_(x1, x2);
     });
 }
 
-function $partial_8_10$Main___123_render_95_26_125_(x1, x2, x3, x4, x5, x6, x7, x8){
-    return (function(x9){
-        return (function(x10){
-            return Main___123_render_95_26_125_(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10);
+function $partial_6_8$Main___123_render_95_16_125_(x1, x2, x3, x4, x5, x6){
+    return (function(x7){
+        return (function(x8){
+            return Main___123_render_95_16_125_(x1, x2, x3, x4, x5, x6, x7, x8);
         });
-    });
-}
-
-function $partial_4_5$Main___123_render_95_28_125_(x1, x2, x3, x4){
-    return (function(x5){
-        return Main___123_render_95_28_125_(x1, x2, x3, x4, x5);
     });
 }
 
@@ -171,16 +155,14 @@ function Main__appendChild($_0_x, $_1_x1, $_2_w){
 
 // Main.applyAttributes
 
-function Main__applyAttributes($_0_arg, $_1_arg){
+function Main__applyAttributes($_0_arg, $_1_arg, $_3_in){
     
     if(($_1_arg.type === 1)) {
-        return $partial_2_3$Main___123_applyAttributes_95_5_125_($_0_arg, $_1_arg.$1);
+        return ((($_0_arg)).addEventListener("click", ((function(x){
+            return $partial_1_2$Main___123_applyAttributes_95_4_125_($_1_arg.$1)(x)(null);
+        }))));
     } else {
-        return new $JSRTS.Lazy((function(){
-            return (function(){
-                return Main___123_applyAttributes_95_6_125_();
-            })();
-        }));
+        return ((($_0_arg)).innerText = ($_1_arg.$1));
     }
 }
 
@@ -189,46 +171,13 @@ function Main__applyAttributes($_0_arg, $_1_arg){
 function Main__create($_0_arg){
     
     if(($_0_arg === "div")) {
-        return $partial_0_1$Main___123_create_95_7_125_();
+        return $partial_0_1$Main___123_create_95_5_125_();
+    } else if(($_0_arg === "text")) {
+        return $partial_0_1$Main___123_create_95_6_125_();
     } else {
         return new $JSRTS.Lazy((function(){
             return (function(){
-                return Main___123_create_95_8_125_();
-            })();
-        }));
-    }
-}
-
-// Main.createText
-
-function Main__createText($_0_arg){
-    
-    if(($_0_arg.type === 1)) {
-        const $cg$3 = $_0_arg.$1;
-        if(($cg$3.type === 0)) {
-            
-            if(($_0_arg.$2.type === 0)) {
-                return $partial_1_2$Main___123_createText_95_9_125_($cg$3.$1);
-            } else {
-                return new $JSRTS.Lazy((function(){
-                    return (function(){
-                        return Main___123_createText_95_10_125_();
-                    })();
-                }));
-            }
-        } else {
-            return new $JSRTS.Lazy((function(){
-                return (function(){
-                    return Main___123_createText_95_10_125_();
-                })();
-            }));
-        }
-    } else if(($_0_arg.type === 0)) {
-        return $partial_0_1$Main___123_createText_95_12_125_();
-    } else {
-        return new $JSRTS.Lazy((function(){
-            return (function(){
-                return Main___123_createText_95_10_125_();
+                return Main___123_create_95_7_125_();
             })();
         }));
     }
@@ -253,24 +202,41 @@ function IdrisScript__log($_0_arg, $_1_arg, $_2_w){
 function Main__main($_0_in){
     const $_1_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $_0_in);
     const $_2_in = Main__getBody($_0_in);
-    const $_3_in = Main__render($_2_in, new $HC_3_0$Main__MkNode("div", new $HC_2_1$Prelude__List___58__58_(new $HC_1_1$Main__Listener($partial_2_3$IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello world!"))), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("sup"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil)))($_0_in);
+    const $_3_in = Main__render($_2_in, new $HC_3_0$Main__MkNode("div", new $HC_2_1$Prelude__List___58__58_(new $HC_1_1$Main__Listener($partial_2_3$IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello world!"))), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("sup"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("another"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil))), $_0_in);
     return $HC_0_0$MkUnit;
 }
 
 // Main.render
 
-function Main__render($_0_arg, $_1_arg){
-    let $_2_in = null;
-    $_2_in = $_1_arg.$1;
-    let $_6_in = null;
-    $_6_in = $_1_arg.$2;
-    return $partial_4_5$Main___123_render_95_28_125_($_2_in, $_6_in, $_0_arg, $_1_arg);
+function Main__render($_0_arg, $_1_arg, $_2_in){
+    let $cg$1 = null;
+    $cg$1 = $_1_arg.$1;
+    const $_6_in = Main__create($cg$1)($_2_in);
+    const $_7_in = Main__appendChild($_0_arg, $_6_in, $_2_in);
+    let $_16_in = null;
+    const $cg$4 = $_1_arg.$2;
+    if(($cg$4.type === 1)) {
+        
+        if(($cg$4.$2.type === 0)) {
+            $_16_in = Main__applyAttributes($_6_in, $cg$4.$1, $_2_in);
+        } else {
+            $_16_in = Main___123_render_95_9_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_1_arg.$1, $_1_arg.$2, $_1_arg.$3, $cg$4.$1, $cg$4.$2)($_2_in);
+        }
+    } else if(($cg$4.type === 0)) {
+        $_16_in = $HC_0_0$MkUnit;
+    } else {
+        $_16_in = Main___123_render_95_11_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_1_arg.$1, $_1_arg.$2, $_1_arg.$3)($_2_in);
+    }
+    
+    let $cg$6 = null;
+    $cg$6 = $_1_arg.$3;
+    return Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $partial_6_8$Main___123_render_95_16_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_16_in), $partial_0_1$Main___123_app_95_2_125_(), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $partial_1_3$Main__render($_6_in), $cg$6))($_2_in);
 }
 
 // Main.{app_1}
 
 function Main___123_app_95_1_125_(){
-    throw new Error(  "*** Main.idr:64:1-20:unmatched case in Main.app ***");
+    throw new Error(  "*** Main.idr:62:1-20:unmatched case in Main.app ***");
 }
 
 // Main.{app_2}
@@ -285,171 +251,75 @@ function Main___123_applyAttributes_95_4_125_($_0_lift, $_1_lift){
     return $_0_lift;
 }
 
-// Main.{applyAttributes_5}
+// Main.{create_5}
 
-function Main___123_applyAttributes_95_5_125_($_0_lift, $_1_lift, $_2_lift){
-    return ((($_0_lift)).addEventListener("click", ((function(x){
-        return $partial_1_2$Main___123_applyAttributes_95_4_125_($_1_lift)(x)(null);
-    }))));
+function Main___123_create_95_5_125_($_0_lift){
+    return (document.createElement(("div")));
 }
 
-// Main.{applyAttributes_6}
+// Main.{create_6}
 
-function Main___123_applyAttributes_95_6_125_(){
-    throw new Error(  "*** Main.idr:57:8-11:unmatched case in Main.case block in applyAttributes at Main.idr:57:8-11 ***");
+function Main___123_create_95_6_125_($_0_lift){
+    return (document.createElement(("span")));
 }
 
 // Main.{create_7}
 
-function Main___123_create_95_7_125_($_0_lift){
-    return (document.createElement(("div")));
-}
-
-// Main.{create_8}
-
-function Main___123_create_95_8_125_(){
+function Main___123_create_95_7_125_(){
     throw new Error(  "*** Main.idr:25:1-28:9:unmatched case in Main.create ***");
 }
 
-// Main.{createText_9}
+// Main.{render_9}
 
-function Main___123_createText_95_9_125_($_0_lift, $_1_lift){
-    return (document.createTextNode(($_0_lift)));
+function Main___123_render_95_9_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift, $_8_lift, $_9_lift){
+    return new $JSRTS.Lazy((function(){
+        return (function(){
+            return Main___123_app_95_1_125_();
+        })();
+    }));
 }
 
-// Main.{createText_10}
+// Main.{render_11}
 
-function Main___123_createText_95_10_125_(){
-    throw new Error(  "*** Main.idr:31:1-34:10:unmatched case in Main.createText ***");
+function Main___123_render_95_11_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
+    return new $JSRTS.Lazy((function(){
+        return (function(){
+            return Main___123_app_95_1_125_();
+        })();
+    }));
 }
 
-// Main.{createText_12}
+// Main.{render_12}
 
-function Main___123_createText_95_12_125_($_0_lift){
-    return (document.createTextNode(("oops")));
+function Main___123_render_95_12_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
+    const $_92_in = $_2_lift($_4_lift);
+    const $_93_in = $_3_lift($_4_lift);
+    return $_92_in($_93_in);
+}
+
+// Main.{render_13}
+
+function Main___123_render_95_13_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
+    return $partial_0_5$Main___123_render_95_12_125_();
 }
 
 // Main.{render_14}
 
-function Main___123_render_95_14_125_(){
-    throw new Error(  "*** Main.idr:73:15-18:unmatched case in Main.case block in render at Main.idr:73:15-18 ***");
+function Main___123_render_95_14_125_($_0_lift){
+    return $_0_lift;
 }
 
 // Main.{render_15}
 
-function Main___123_render_95_15_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
-    return new $JSRTS.Lazy((function(){
-        return (function(){
-            return Main___123_render_95_14_125_();
-        })();
-    }));
+function Main___123_render_95_15_125_($_0_lift, $_1_lift){
+    const $_77_in = $_0_lift($_1_lift);
+    return $partial_0_1$Main___123_render_95_14_125_();
 }
 
-// Main.{render_17}
+// Main.{render_16}
 
-function Main___123_render_95_17_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift, $_8_lift){
-    return new $JSRTS.Lazy((function(){
-        return (function(){
-            return Main___123_app_95_1_125_();
-        })();
-    }));
-}
-
-// Main.{render_19}
-
-function Main___123_render_95_19_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift){
-    return new $JSRTS.Lazy((function(){
-        return (function(){
-            return Main___123_app_95_1_125_();
-        })();
-    }));
-}
-
-// Main.{render_20}
-
-function Main___123_render_95_20_125_(){
-    throw new Error(  "*** Main.idr:83:8-11:unmatched case in Main.case block in render at Main.idr:83:8-11 ***");
-}
-
-// Main.{render_21}
-
-function Main___123_render_95_21_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift){
-    return new $JSRTS.Lazy((function(){
-        return (function(){
-            return Main___123_render_95_20_125_();
-        })();
-    }));
-}
-
-// Main.{render_22}
-
-function Main___123_render_95_22_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
-    const $_91_in = $_2_lift($_4_lift);
-    const $_92_in = $_3_lift($_4_lift);
-    return $_91_in($_92_in);
-}
-
-// Main.{render_23}
-
-function Main___123_render_95_23_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift, $_8_lift, $_9_lift){
-    return $partial_0_5$Main___123_render_95_22_125_();
-}
-
-// Main.{render_24}
-
-function Main___123_render_95_24_125_($_0_lift){
-    return $_0_lift;
-}
-
-// Main.{render_25}
-
-function Main___123_render_95_25_125_($_0_lift, $_1_lift){
-    const $_76_in = $_0_lift($_1_lift);
-    return $partial_0_1$Main___123_render_95_24_125_();
-}
-
-// Main.{render_26}
-
-function Main___123_render_95_26_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift, $_8_lift, $_9_lift){
-    return Main___123_render_95_23_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift, $_8_lift, $_9_lift)(null)(null)($partial_1_2$Main___123_render_95_25_125_($_8_lift))($_9_lift);
-}
-
-// Main.{render_28}
-
-function Main___123_render_95_28_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
-    let $_11_in = null;
-    if(($_0_lift === "div")) {
-        $_11_in = Main__create($_0_lift)($_4_lift);
-    } else if(($_0_lift === "text")) {
-        $_11_in = Main__createText($_1_lift)($_4_lift);
-    } else {
-        $_11_in = Main___123_render_95_15_125_($_2_lift, $_3_lift, $_0_lift, $_1_lift, $_4_lift)($_4_lift);
-    }
-    
-    const $_12_in = Main__appendChild($_2_lift, $_11_in, $_4_lift);
-    let $_15_in = null;
-    if(($_0_lift === "div")) {
-        
-        if(($_1_lift.type === 1)) {
-            
-            if(($_1_lift.$2.type === 0)) {
-                $_15_in = Main__applyAttributes($_11_in, $_1_lift.$1)($_4_lift);
-            } else {
-                $_15_in = Main___123_render_95_17_125_($_2_lift, $_3_lift, $_0_lift, $_1_lift, $_4_lift, $_11_in, $_12_in, $_1_lift.$1, $_1_lift.$2)($_4_lift);
-            }
-        } else if(($_1_lift.type === 0)) {
-            $_15_in = $HC_0_0$MkUnit;
-        } else {
-            $_15_in = Main___123_render_95_19_125_($_2_lift, $_3_lift, $_0_lift, $_1_lift, $_4_lift, $_11_in, $_12_in)($_4_lift);
-        }
-    } else {
-        $_15_in = Main___123_render_95_21_125_($_2_lift, $_3_lift, $_0_lift, $_1_lift, $_4_lift, $_11_in, $_12_in)($_4_lift);
-    }
-    
-    let $cg$5 = null;
-    $cg$5 = $_3_lift.$3;
-    const $_97_in = Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $partial_8_10$Main___123_render_95_26_125_($_2_lift, $_3_lift, $_0_lift, $_1_lift, $_4_lift, $_11_in, $_12_in, $_15_in), $partial_0_1$Main___123_app_95_2_125_(), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $partial_1_2$Main__render($_11_in), $cg$5))($_4_lift);
-    return $HC_0_0$MkUnit;
+function Main___123_render_95_16_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
+    return Main___123_render_95_13_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift)(null)(null)($partial_1_2$Main___123_render_95_15_125_($_6_lift))($_7_lift);
 }
 
 // Prelude.Foldable.Prelude.List.List implementation of Prelude.Foldable.Foldable, method foldr
