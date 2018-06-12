@@ -1,6 +1,5 @@
 module Main
 
-import Control.Monad.State
 import IdrisScript
 
 data Attr = Text String
@@ -9,7 +8,7 @@ data Attr = Text String
 record Node where
   constructor MkNode
   type : String
-  attributes : List $ Attr
+  attributes : List Attr
   children : List Node
 
 div : List Attr -> List Node -> Node
@@ -21,21 +20,19 @@ text s = MkNode "text" [ Text s ] []
 button : Node
 button = MkNode "button" [] []
 
+--
+-- Javascript world
+--
+
 create : String -> IO' (MkFFI JS_Types String String) Ptr
 create "div" = do
   jscall "document.createElement(%0)"
     (String -> JS_IO Ptr)
     "div"
-
-createText : List Attr -> IO' (MkFFI JS_Types String String) Ptr
-createText [] = do
-  jscall "document.createTextNode(%0)"
+create "text" = do
+  jscall "document.createElement(%0)"
     (String -> JS_IO Ptr)
-    "oops"
-createText [Text t] = do
-  jscall "document.createTextNode(%0)"
-    (String -> JS_IO Ptr)
-    t
+    "span"
 
 appendChild : Ptr -> Ptr -> JS_IO ()
 appendChild = do
@@ -59,31 +56,38 @@ applyAttributes ptr attr = do
       jscall "(%0).addEventListener(\"click\", %1)"
         (Ptr -> (JsFn (() -> JS_IO ()) -> JS_IO ()))
         ptr (MkJsFn (\() => fn))
+    Text s =>
+      jscall "(%0).innerText = %1"
+      (Ptr -> String -> JS_IO ())
+      ptr s
 
 app : Ptr -> List Attr -> JS_IO ()
 app ptr [] = pure ()
 app ptr [a] = applyAttributes ptr a
 
+--
+-- Core algorithm
+--
+
 render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
 render parent node = do
-  -- get ptr to created el
   let type = type node
   let attributes = (attributes node)
 
-  ptr <- case type of
-    "div" => create type
-    "text" => createText attributes
+  -- get ptr to created el
+  ptr <- create type
 
   -- append
   appendChild parent ptr
 
   -- apply attributes
-  case type of
-    "div" => app ptr attributes
+  app ptr attributes
 
-  let children = children node
-  sequence_ $ map (render ptr) children
-  pure ()
+  sequence_ $ map (render ptr) (children node)
+
+--
+-- Entrance
+--
 
 getBody : JS_IO Ptr
 getBody = do
@@ -94,7 +98,7 @@ main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   body <- getBody
-  let mine : Node = div [ Listener "onClick" helloWorld ] [ text "sup" ]
+  let mine : Node = div [ Listener "onClick" helloWorld ] [ text "sup", text "another" ]
   render body mine
 
   pure ()
