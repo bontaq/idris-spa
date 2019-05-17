@@ -1,10 +1,40 @@
 module Main
 
 import IdrisScript
+import Control.Monad.State
 
 data Attr = Text String
           | Listener String (JS_IO ())
           | Style String
+
+record Horse where
+  constructor MkHorse
+  size : Integer
+
+record Car where
+  constructor MkCar
+  wheels : Integer
+
+data Opts = OptHorse Horse
+          | OptCar Car
+
+record Props where
+  constructor MkProps
+  price : Maybe Integer
+  testid : String
+  opt : Opts
+
+example : Props -> String
+example p =
+  case (opt p) of
+    (OptHorse h) => "label"
+    (OptCar c) => "bah"
+
+record OptionProps where
+  constructor MkIdProp
+  price : Maybe Integer
+  testId : String
+  option : String
 
 record Node where
   constructor MkNode
@@ -101,18 +131,26 @@ getBody = do
   jscall "document.body"
     (JS_IO Ptr)
 
+increment : Nat -> State Nat ()
+increment inc = do
+  current <- get
+  put (current + inc)
+
 main : JS_IO ()
 main = do
   log (toJS {from=String}{to=JSString} "hello")
   body <- getBody
-  let mine : Node = div [
-   Listener "onClick" helloWorld
-   , Style "color: blue;"
-   ]
-   [ text "sup", text "another" ]
+  let mine : Node =
+    div
+    [ Listener "onClick" helloWorld
+    , Style "color: blue;" ]
+    [ text "sup"
+    , text "another" ]
   render body mine
 
   pure ()
+
+
 
 -- Local Variables:
 -- idris-load-packages: ("idrisscript")

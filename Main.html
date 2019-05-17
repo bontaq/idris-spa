@@ -58,37 +58,31 @@ function $partial_1_3$Main__render(x1){
     });
 }
 
-function $partial_0_1$Main___123_app_95_2_125_(){
-    return (function(x1){
-        return Main___123_app_95_2_125_(x1);
-    });
-}
-
-function $partial_1_2$Main___123_applyAttributes_95_4_125_(x1){
+function $partial_1_2$Main___123_applyAttributes_95_1_125_(x1){
     return (function(x2){
-        return Main___123_applyAttributes_95_4_125_(x1, x2);
+        return Main___123_applyAttributes_95_1_125_(x1, x2);
     });
 }
 
-function $partial_0_1$Main___123_create_95_5_125_(){
+function $partial_0_1$Main___123_create_95_2_125_(){
     return (function(x1){
-        return Main___123_create_95_5_125_(x1);
+        return Main___123_create_95_2_125_(x1);
     });
 }
 
-function $partial_0_1$Main___123_create_95_6_125_(){
+function $partial_0_1$Main___123_create_95_3_125_(){
     return (function(x1){
-        return Main___123_create_95_6_125_(x1);
+        return Main___123_create_95_3_125_(x1);
     });
 }
 
-function $partial_0_5$Main___123_render_95_12_125_(){
+function $partial_0_5$Main___123_render_95_5_125_(){
     return (function(x1){
         return (function(x2){
             return (function(x3){
                 return (function(x4){
                     return (function(x5){
-                        return Main___123_render_95_12_125_(x1, x2, x3, x4, x5);
+                        return Main___123_render_95_5_125_(x1, x2, x3, x4, x5);
                     });
                 });
             });
@@ -96,23 +90,29 @@ function $partial_0_5$Main___123_render_95_12_125_(){
     });
 }
 
-function $partial_0_1$Main___123_render_95_14_125_(){
+function $partial_0_1$Main___123_render_95_7_125_(){
     return (function(x1){
-        return Main___123_render_95_14_125_(x1);
+        return Main___123_render_95_7_125_(x1);
     });
 }
 
-function $partial_1_2$Main___123_render_95_15_125_(x1){
+function $partial_1_2$Main___123_render_95_8_125_(x1){
     return (function(x2){
-        return Main___123_render_95_15_125_(x1, x2);
+        return Main___123_render_95_8_125_(x1, x2);
     });
 }
 
-function $partial_6_8$Main___123_render_95_16_125_(x1, x2, x3, x4, x5, x6){
+function $partial_6_8$Main___123_render_95_9_125_(x1, x2, x3, x4, x5, x6){
     return (function(x7){
         return (function(x8){
-            return Main___123_render_95_16_125_(x1, x2, x3, x4, x5, x6, x7, x8);
+            return Main___123_render_95_9_125_(x1, x2, x3, x4, x5, x6, x7, x8);
         });
+    });
+}
+
+function $partial_0_1$Main___123_render_95_10_125_(){
+    return (function(x1){
+        return Main___123_render_95_10_125_(x1);
     });
 }
 
@@ -142,9 +142,30 @@ function $HC_3_0$Main__MkNode($1, $2, $3){
 }
 
 const $HC_0_0$Prelude__List__Nil = ({type: 0});
+function $HC_1_2$Main__Style($1){
+    this.type = 2;
+    this.$1 = $1;
+}
+
 function $HC_1_0$Main__Text($1){
     this.type = 0;
     this.$1 = $1;
+}
+
+// Main.app
+
+function Main__app($_0_arg, $_1_arg, $_4_in){
+    for(;;) {
+        
+        if(($_1_arg.type === 1)) {
+            const $_7_in = Main__applyAttributes($_0_arg, $_1_arg.$1, $_4_in);
+            $_0_arg = $_0_arg;
+            $_1_arg = $_1_arg.$2;
+            $_4_in = $_4_in;
+        } else {
+            return $HC_0_0$MkUnit;
+        }
+    }
 }
 
 // Main.appendChild
@@ -159,8 +180,10 @@ function Main__applyAttributes($_0_arg, $_1_arg, $_3_in){
     
     if(($_1_arg.type === 1)) {
         return ((($_0_arg)).addEventListener("click", ((function(x){
-            return $partial_1_2$Main___123_applyAttributes_95_4_125_($_1_arg.$1)(x)(null);
+            return $partial_1_2$Main___123_applyAttributes_95_1_125_($_1_arg.$1)(x)(null);
         }))));
+    } else if(($_1_arg.type === 2)) {
+        return ((($_0_arg)).style.cssText = ($_1_arg.$1));
     } else {
         return ((($_0_arg)).innerText = ($_1_arg.$1));
     }
@@ -171,13 +194,13 @@ function Main__applyAttributes($_0_arg, $_1_arg, $_3_in){
 function Main__create($_0_arg){
     
     if(($_0_arg === "div")) {
-        return $partial_0_1$Main___123_create_95_5_125_();
+        return $partial_0_1$Main___123_create_95_2_125_();
     } else if(($_0_arg === "text")) {
-        return $partial_0_1$Main___123_create_95_6_125_();
+        return $partial_0_1$Main___123_create_95_3_125_();
     } else {
         return new $JSRTS.Lazy((function(){
             return (function(){
-                return Main___123_create_95_7_125_();
+                return Main___123_create_95_4_125_();
             })();
         }));
     }
@@ -202,7 +225,7 @@ function IdrisScript__log($_0_arg, $_1_arg, $_2_w){
 function Main__main($_0_in){
     const $_1_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $_0_in);
     const $_2_in = Main__getBody($_0_in);
-    const $_3_in = Main__render($_2_in, new $HC_3_0$Main__MkNode("div", new $HC_2_1$Prelude__List___58__58_(new $HC_1_1$Main__Listener($partial_2_3$IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello world!"))), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("sup"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("another"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil))), $_0_in);
+    const $_3_in = Main__render($_2_in, new $HC_3_0$Main__MkNode("div", new $HC_2_1$Prelude__List___58__58_(new $HC_1_1$Main__Listener($partial_2_3$IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello world!"))), new $HC_2_1$Prelude__List___58__58_(new $HC_1_2$Main__Style("color: blue;"), $HC_0_0$Prelude__List__Nil)), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("sup"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("another"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil))), $_0_in);
     return $HC_0_0$MkUnit;
 }
 
@@ -213,113 +236,75 @@ function Main__render($_0_arg, $_1_arg, $_2_in){
     $cg$1 = $_1_arg.$1;
     const $_6_in = Main__create($cg$1)($_2_in);
     const $_7_in = Main__appendChild($_0_arg, $_6_in, $_2_in);
-    let $_16_in = null;
-    const $cg$4 = $_1_arg.$2;
-    if(($cg$4.type === 1)) {
-        
-        if(($cg$4.$2.type === 0)) {
-            $_16_in = Main__applyAttributes($_6_in, $cg$4.$1, $_2_in);
-        } else {
-            $_16_in = Main___123_render_95_9_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_1_arg.$1, $_1_arg.$2, $_1_arg.$3, $cg$4.$1, $cg$4.$2)($_2_in);
-        }
-    } else if(($cg$4.type === 0)) {
-        $_16_in = $HC_0_0$MkUnit;
-    } else {
-        $_16_in = Main___123_render_95_11_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_1_arg.$1, $_1_arg.$2, $_1_arg.$3)($_2_in);
-    }
-    
-    let $cg$6 = null;
-    $cg$6 = $_1_arg.$3;
-    return Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $partial_6_8$Main___123_render_95_16_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_16_in), $partial_0_1$Main___123_app_95_2_125_(), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $partial_1_3$Main__render($_6_in), $cg$6))($_2_in);
+    let $cg$2 = null;
+    $cg$2 = $_1_arg.$2;
+    const $_11_in = Main__app($_6_in, $cg$2, $_2_in);
+    let $cg$3 = null;
+    $cg$3 = $_1_arg.$3;
+    return Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $partial_6_8$Main___123_render_95_9_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_11_in), $partial_0_1$Main___123_render_95_10_125_(), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $partial_1_3$Main__render($_6_in), $cg$3))($_2_in);
 }
 
-// Main.{app_1}
+// Main.{applyAttributes_1}
 
-function Main___123_app_95_1_125_(){
-    throw new Error(  "*** Main.idr:62:1-20:unmatched case in Main.app ***");
-}
-
-// Main.{app_2}
-
-function Main___123_app_95_2_125_($_0_lift){
-    return $HC_0_0$MkUnit;
-}
-
-// Main.{applyAttributes_4}
-
-function Main___123_applyAttributes_95_4_125_($_0_lift, $_1_lift){
+function Main___123_applyAttributes_95_1_125_($_0_lift, $_1_lift){
     return $_0_lift;
 }
 
-// Main.{create_5}
+// Main.{create_2}
 
-function Main___123_create_95_5_125_($_0_lift){
+function Main___123_create_95_2_125_($_0_lift){
     return (document.createElement(("div")));
 }
 
-// Main.{create_6}
+// Main.{create_3}
 
-function Main___123_create_95_6_125_($_0_lift){
+function Main___123_create_95_3_125_($_0_lift){
     return (document.createElement(("span")));
 }
 
-// Main.{create_7}
+// Main.{create_4}
 
-function Main___123_create_95_7_125_(){
-    throw new Error(  "*** Main.idr:25:1-28:9:unmatched case in Main.create ***");
+function Main___123_create_95_4_125_(){
+    throw new Error(  "*** Main.idr:58:1-61:9:unmatched case in Main.create ***");
+}
+
+// Main.{render_5}
+
+function Main___123_render_95_5_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
+    const $_87_in = $_2_lift($_4_lift);
+    const $_88_in = $_3_lift($_4_lift);
+    return $_87_in($_88_in);
+}
+
+// Main.{render_6}
+
+function Main___123_render_95_6_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
+    return $partial_0_5$Main___123_render_95_5_125_();
+}
+
+// Main.{render_7}
+
+function Main___123_render_95_7_125_($_0_lift){
+    return $_0_lift;
+}
+
+// Main.{render_8}
+
+function Main___123_render_95_8_125_($_0_lift, $_1_lift){
+    const $_72_in = $_0_lift($_1_lift);
+    return $partial_0_1$Main___123_render_95_7_125_();
 }
 
 // Main.{render_9}
 
-function Main___123_render_95_9_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift, $_8_lift, $_9_lift){
-    return new $JSRTS.Lazy((function(){
-        return (function(){
-            return Main___123_app_95_1_125_();
-        })();
-    }));
+function Main___123_render_95_9_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
+    return Main___123_render_95_6_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift)(null)(null)($partial_1_2$Main___123_render_95_8_125_($_6_lift))($_7_lift);
 }
 
-// Main.{render_11}
+// Main.{render_10}
 
-function Main___123_render_95_11_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
-    return new $JSRTS.Lazy((function(){
-        return (function(){
-            return Main___123_app_95_1_125_();
-        })();
-    }));
-}
-
-// Main.{render_12}
-
-function Main___123_render_95_12_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
-    const $_92_in = $_2_lift($_4_lift);
-    const $_93_in = $_3_lift($_4_lift);
-    return $_92_in($_93_in);
-}
-
-// Main.{render_13}
-
-function Main___123_render_95_13_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
-    return $partial_0_5$Main___123_render_95_12_125_();
-}
-
-// Main.{render_14}
-
-function Main___123_render_95_14_125_($_0_lift){
-    return $_0_lift;
-}
-
-// Main.{render_15}
-
-function Main___123_render_95_15_125_($_0_lift, $_1_lift){
-    const $_77_in = $_0_lift($_1_lift);
-    return $partial_0_1$Main___123_render_95_14_125_();
-}
-
-// Main.{render_16}
-
-function Main___123_render_95_16_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
-    return Main___123_render_95_13_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift)(null)(null)($partial_1_2$Main___123_render_95_15_125_($_6_lift))($_7_lift);
+function Main___123_render_95_10_125_($_0_lift){
+    return $HC_0_0$MkUnit;
 }
 
 // Prelude.Foldable.Prelude.List.List implementation of Prelude.Foldable.Foldable, method foldr
