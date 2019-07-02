@@ -44,172 +44,68 @@ $JSRTS.prim_readStr = function () { return prompt('Prelude.getLine') };
 
 
 
-function $partial_2_3$IdrisScript__log(x1, x2){
-    return (function(x3){
-        return IdrisScript__log(x1, x2, x3);
-    });
-}
-
-function $partial_1_3$Main__render(x1){
-    return (function(x2){
-        return (function(x3){
-            return Main__render(x1, x2, x3);
-        });
-    });
-}
-
-function $partial_1_2$Main___123_applyAttributes_95_1_125_(x1){
-    return (function(x2){
-        return Main___123_applyAttributes_95_1_125_(x1, x2);
-    });
-}
-
-function $partial_0_1$Main___123_create_95_2_125_(){
-    return (function(x1){
-        return Main___123_create_95_2_125_(x1);
-    });
-}
-
-function $partial_0_1$Main___123_create_95_3_125_(){
-    return (function(x1){
-        return Main___123_create_95_3_125_(x1);
-    });
-}
-
-function $partial_0_5$Main___123_render_95_5_125_(){
+function $partial_0_4$Main___123_increment_95_0_125_(){
     return (function(x1){
         return (function(x2){
             return (function(x3){
                 return (function(x4){
-                    return (function(x5){
-                        return Main___123_render_95_5_125_(x1, x2, x3, x4, x5);
-                    });
+                    return Main___123_increment_95_0_125_(x1, x2, x3, x4);
                 });
             });
         });
     });
 }
 
-function $partial_0_1$Main___123_render_95_7_125_(){
+function $partial_0_1$Main___123_increment_95_1_125_(){
     return (function(x1){
-        return Main___123_render_95_7_125_(x1);
+        return Main___123_increment_95_1_125_(x1);
     });
 }
 
-function $partial_1_2$Main___123_render_95_8_125_(x1){
+function $partial_1_3$Main___123_increment_95_2_125_(x1){
     return (function(x2){
-        return Main___123_render_95_8_125_(x1, x2);
-    });
-}
-
-function $partial_6_8$Main___123_render_95_9_125_(x1, x2, x3, x4, x5, x6){
-    return (function(x7){
-        return (function(x8){
-            return Main___123_render_95_9_125_(x1, x2, x3, x4, x5, x6, x7, x8);
+        return (function(x3){
+            return Main___123_increment_95_2_125_(x1, x2, x3);
         });
     });
 }
 
-function $partial_0_1$Main___123_render_95_10_125_(){
-    return (function(x1){
-        return Main___123_render_95_10_125_(x1);
+function $partial_1_2$Prelude__Monad___123_Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0_95_lam_95_3_125_(x1){
+    return (function(x2){
+        return Prelude__Monad___123_Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0_95_lam_95_3_125_(x1, x2);
+    });
+}
+
+function $partial_7_8$Prelude__Monad__Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0(x1, x2, x3, x4, x5, x6, x7){
+    return (function(x8){
+        return Prelude__Monad__Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0(x1, x2, x3, x4, x5, x6, x7, x8);
     });
 }
 
 const $HC_0_0$MkUnit = ({type: 0});
 const $HC_0_0$TheWorld = ({type: 0});
-function $HC_2_1$Prelude__List___58__58_($1, $2){
-    this.type = 1;
-    this.$1 = $1;
-    this.$2 = $2;
-}
-
-function $HC_1_1$Main__Listener($1){
-    this.type = 1;
-    this.$1 = $1;
-}
-
-function $HC_1_1$IdrisScript__MkJSString($1){
-    this.type = 1;
-    this.$1 = $1;
-}
-
-function $HC_3_0$Main__MkNode($1, $2, $3){
-    this.type = 0;
-    this.$1 = $1;
-    this.$2 = $2;
-    this.$3 = $3;
-}
-
-const $HC_0_0$Prelude__List__Nil = ({type: 0});
-function $HC_1_2$Main__Style($1){
-    this.type = 2;
-    this.$1 = $1;
-}
-
-function $HC_1_0$Main__Text($1){
+function $HC_1_0$IdrisScript__MkJSNumber($1){
     this.type = 0;
     this.$1 = $1;
 }
 
-// Main.app
-
-function Main__app($_0_arg, $_1_arg, $_4_in){
-    for(;;) {
-        
-        if(($_1_arg.type === 1)) {
-            const $_7_in = Main__applyAttributes($_0_arg, $_1_arg.$1, $_4_in);
-            $_0_arg = $_0_arg;
-            $_1_arg = $_1_arg.$2;
-            $_4_in = $_4_in;
-        } else {
-            return $HC_0_0$MkUnit;
-        }
-    }
+function $HC_2_0$Builtins__MkPair($1, $2){
+    this.type = 0;
+    this.$1 = $1;
+    this.$2 = $2;
 }
 
-// Main.appendChild
+// Control.Monad.State.execState
 
-function Main__appendChild($_0_x, $_1_x1, $_2_w){
-    return ((($_0_x)).appendChild(($_1_x1)));
+function Control__Monad__State__execState($_0_arg, $_1_arg, $_2_arg, $_8_in){
+    const $cg$2 = $_2_arg($_8_in);
+    return $cg$2.$2;
 }
 
-// Main.applyAttributes
+// Main.increment
 
-function Main__applyAttributes($_0_arg, $_1_arg, $_3_in){
-    
-    if(($_1_arg.type === 1)) {
-        return ((($_0_arg)).addEventListener("click", ((function(x){
-            return $partial_1_2$Main___123_applyAttributes_95_1_125_($_1_arg.$1)(x)(null);
-        }))));
-    } else if(($_1_arg.type === 2)) {
-        return ((($_0_arg)).style.cssText = ($_1_arg.$1));
-    } else {
-        return ((($_0_arg)).innerText = ($_1_arg.$1));
-    }
-}
-
-// Main.create
-
-function Main__create($_0_arg){
-    
-    if(($_0_arg === "div")) {
-        return $partial_0_1$Main___123_create_95_2_125_();
-    } else if(($_0_arg === "text")) {
-        return $partial_0_1$Main___123_create_95_3_125_();
-    } else {
-        return new $JSRTS.Lazy((function(){
-            return (function(){
-                return Main___123_create_95_4_125_();
-            })();
-        }));
-    }
-}
-
-// Main.getBody
-
-function Main__getBody($_0_w){
-    return (document.body);
+function Main__increment($_0_arg){
+    return $partial_7_8$Prelude__Monad__Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0(null, null, null, null, $partial_0_4$Main___123_increment_95_0_125_(), $partial_0_1$Main___123_increment_95_1_125_(), $partial_1_3$Main___123_increment_95_2_125_($_0_arg));
 }
 
 // IdrisScript.log
@@ -223,110 +119,39 @@ function IdrisScript__log($_0_arg, $_1_arg, $_2_w){
 // Main.main
 
 function Main__main($_0_in){
-    const $_1_in = IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello"), $_0_in);
-    const $_2_in = Main__getBody($_0_in);
-    const $_3_in = Main__render($_2_in, new $HC_3_0$Main__MkNode("div", new $HC_2_1$Prelude__List___58__58_(new $HC_1_1$Main__Listener($partial_2_3$IdrisScript__log(null, new $HC_1_1$IdrisScript__MkJSString("hello world!"))), new $HC_2_1$Prelude__List___58__58_(new $HC_1_2$Main__Style("color: blue;"), $HC_0_0$Prelude__List__Nil)), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("sup"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), new $HC_2_1$Prelude__List___58__58_(new $HC_3_0$Main__MkNode("text", new $HC_2_1$Prelude__List___58__58_(new $HC_1_0$Main__Text("another"), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil), $HC_0_0$Prelude__List__Nil))), $_0_in);
+    const $_1_in = IdrisScript__log(null, new $HC_1_0$IdrisScript__MkJSNumber(Control__Monad__State__execState(null, null, Main__increment(5), 5)), $_0_in);
     return $HC_0_0$MkUnit;
 }
 
-// Main.render
+// Main.{increment_0}
 
-function Main__render($_0_arg, $_1_arg, $_2_in){
-    let $cg$1 = null;
-    $cg$1 = $_1_arg.$1;
-    const $_6_in = Main__create($cg$1)($_2_in);
-    const $_7_in = Main__appendChild($_0_arg, $_6_in, $_2_in);
-    let $cg$2 = null;
-    $cg$2 = $_1_arg.$2;
-    const $_11_in = Main__app($_6_in, $cg$2, $_2_in);
-    let $cg$3 = null;
-    $cg$3 = $_1_arg.$3;
-    return Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $partial_6_8$Main___123_render_95_9_125_($_0_arg, $_1_arg, $_2_in, $_6_in, $_7_in, $_11_in), $partial_0_1$Main___123_render_95_10_125_(), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $partial_1_3$Main__render($_6_in), $cg$3))($_2_in);
+function Main___123_increment_95_0_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift){
+    return $_3_lift($_2_lift);
 }
 
-// Main.{applyAttributes_1}
+// Main.{increment_1}
 
-function Main___123_applyAttributes_95_1_125_($_0_lift, $_1_lift){
-    return $_0_lift;
+function Main___123_increment_95_1_125_($_0_lift){
+    return new $HC_2_0$Builtins__MkPair($_0_lift, $_0_lift);
 }
 
-// Main.{create_2}
+// Main.{increment_2}
 
-function Main___123_create_95_2_125_($_0_lift){
-    return (document.createElement(("div")));
+function Main___123_increment_95_2_125_($_0_lift, $_1_lift, $_2_lift){
+    return new $HC_2_0$Builtins__MkPair($HC_0_0$MkUnit, ($_1_lift + $_0_lift));
 }
 
-// Main.{create_3}
+// Prelude.Monad.{Control.Monad.State.@Prelude.Monad.Monad$StateT stateType m:!>>=:0_lam_3}
 
-function Main___123_create_95_3_125_($_0_lift){
-    return (document.createElement(("span")));
-}
-
-// Main.{create_4}
-
-function Main___123_create_95_4_125_(){
-    throw new Error(  "*** Main.idr:58:1-61:9:unmatched case in Main.create ***");
-}
-
-// Main.{render_5}
-
-function Main___123_render_95_5_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift){
-    const $_87_in = $_2_lift($_4_lift);
-    const $_88_in = $_3_lift($_4_lift);
-    return $_87_in($_88_in);
-}
-
-// Main.{render_6}
-
-function Main___123_render_95_6_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
-    return $partial_0_5$Main___123_render_95_5_125_();
-}
-
-// Main.{render_7}
-
-function Main___123_render_95_7_125_($_0_lift){
-    return $_0_lift;
-}
-
-// Main.{render_8}
-
-function Main___123_render_95_8_125_($_0_lift, $_1_lift){
-    const $_72_in = $_0_lift($_1_lift);
-    return $partial_0_1$Main___123_render_95_7_125_();
-}
-
-// Main.{render_9}
-
-function Main___123_render_95_9_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift){
-    return Main___123_render_95_6_125_($_0_lift, $_1_lift, $_2_lift, $_3_lift, $_4_lift, $_5_lift, $_6_lift, $_7_lift)(null)(null)($partial_1_2$Main___123_render_95_8_125_($_6_lift))($_7_lift);
-}
-
-// Main.{render_10}
-
-function Main___123_render_95_10_125_($_0_lift){
-    return $HC_0_0$MkUnit;
-}
-
-// Prelude.Foldable.Prelude.List.List implementation of Prelude.Foldable.Foldable, method foldr
-
-function Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0($_0_arg, $_1_arg, $_2_arg, $_3_arg, $_4_arg){
+function Prelude__Monad___123_Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0_95_lam_95_3_125_($_0_lift, $_1_lift){
     
-    if(($_4_arg.type === 1)) {
-        return $_2_arg($_4_arg.$1)(Prelude__Foldable__Prelude__List___64_Prelude__Foldable__Foldable_36_List_58__33_foldr_58_0(null, null, $_2_arg, $_3_arg, $_4_arg.$2));
-    } else {
-        return $_3_arg;
-    }
+    return $_0_lift($_1_lift.$1)($_1_lift.$2);
 }
 
-// Prelude.Functor.Prelude.List.List implementation of Prelude.Functor.Functor, method map
+// Prelude.Monad.Control.Monad.State.StateT stateType m implementation of Prelude.Monad.Monad, method >>=
 
-function Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0($_0_arg, $_1_arg, $_2_arg, $_3_arg){
-    
-    if(($_3_arg.type === 1)) {
-        return new $HC_2_1$Prelude__List___58__58_($_2_arg($_3_arg.$1), Prelude__Functor__Prelude__List___64_Prelude__Functor__Functor_36_List_58__33_map_58_0(null, null, $_2_arg, $_3_arg.$2));
-    } else {
-        return $_3_arg;
-    }
+function Prelude__Monad__Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0($_0_arg, $_1_arg, $_2_arg, $_3_arg, $_4_arg, $_5_arg, $_6_arg, $_7_st){
+    return $_4_arg(null)(null)($_5_arg($_7_st))($partial_1_2$Prelude__Monad___123_Control__Monad__State___64_Prelude__Monad__Monad_36_StateT_32_stateType_32_m_58__33__62__62__61__58_0_95_lam_95_3_125_($_6_arg));
 }
 
 // {runMain_0}

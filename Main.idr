@@ -131,22 +131,24 @@ getBody = do
   jscall "document.body"
     (JS_IO Ptr)
 
-increment : Nat -> State Nat ()
+increment : Int -> State Int ()
 increment inc = do
   current <- get
   put (current + inc)
 
 main : JS_IO ()
 main = do
-  log (toJS {from=String}{to=JSString} "hello")
-  body <- getBody
-  let mine : Node =
-    div
-    [ Listener "onClick" helloWorld
-    , Style "color: blue;" ]
-    [ text "sup"
-    , text "another" ]
-  render body mine
+  let num = execState (increment 5) 5
+  log (toJS {from=Int}{to=JSNumber} num)
+  -- log (toJS {from=String}{to=JSString} "hello")
+  -- body <- getBody
+  -- let mine : Node =
+  --   div
+  --   [ Listener "onClick" helloWorld
+  --   , Style "color: blue;" ]
+  --   [ text "sup"
+  --   , text "another" ]
+  -- render body mine
 
   pure ()
 
