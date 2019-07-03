@@ -2,8 +2,8 @@ module Main
 
 import IdrisScript
 import Control.Monad.State
-import Control.Monad.Trans
-import Control.Monad.Identity
+-- import Control.Monad.Trans
+-- import Control.Monad.Identity
 -- import Control.ST
 
 data Attr = Text String
@@ -145,7 +145,16 @@ renderLoop : StateT String JS_IO ()
 renderLoop = do
   -- let a = execState increment $ 5
   -- let b = put "hey"
-  lift helloWorld
+  -- lift helloWorld
+  body <- lift getBody
+  let mine : Node =
+    div
+      [ Listener "onClick" helloWorld
+        , Style "color: blue;" ]
+        [ text "sup"
+        , text "another" ]
+  lift $ render body mine
+
   -- because it's in the wrong context?
   t <- get
   -- let t = lift
@@ -172,19 +181,22 @@ main : JS_IO ()
 main = do
   -- let num = execState (increment 5) 5
 
-  let renderLoop = do
-    body <- getBody
-    let mine : Node =
-      div
-        [ Listener "onClick" helloWorld
-          , Style "color: blue;" ]
-          [ text "sup"
-          , text "another" ]
-    render body mine
+  (runStateT renderLoop) ""
+  -- runS renderLoop
 
-    -- renderLoop
+  -- let renderLoop = do
+  --   body <- getBody
+  --   let mine : Node =
+  --     div
+  --       [ Listener "onClick" helloWorld
+  --         , Style "color: blue;" ]
+  --         [ text "sup"
+  --         , text "another" ]
+  --   render body mine
 
-  renderLoop
+  --   -- renderLoop
+
+  -- renderLoop
 
   -- log (toJS {from=Int}{to=JSNumber} num)
   -- log (toJS {from=String}{to=JSString} "hello")
