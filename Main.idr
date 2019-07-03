@@ -140,12 +140,8 @@ increment = do
   current <- get
   put (current + 1)
 
-
 renderLoop : StateT String JS_IO ()
 renderLoop = do
-  -- let a = execState increment $ 5
-  -- let b = put "hey"
-  -- lift helloWorld
   body <- lift getBody
   let mine : Node =
     div
@@ -155,59 +151,12 @@ renderLoop = do
         , text "another" ]
   lift $ render body mine
 
-  -- because it's in the wrong context?
   t <- get
-  -- let t = lift
-  -- st <- lift get
   pure ()
-  -- put "hey"
---  putStr (show a)
-
-  -- body <- ?getBody
-  -- -- body <- getBody
-  -- let mine : Node =
-  --   div
-  --     [ Listener "onClick" helloWorld
-  --       , Style "color: blue;" ]
-  --       [ text "sup"
-  --       , text "another" ]
-
-  -- -- render ?a ?b
-  -- render body mine
-
-  -- renderLoop st
 
 main : JS_IO ()
 main = do
-  -- let num = execState (increment 5) 5
-
   (runStateT renderLoop) ""
-  -- runS renderLoop
-
-  -- let renderLoop = do
-  --   body <- getBody
-  --   let mine : Node =
-  --     div
-  --       [ Listener "onClick" helloWorld
-  --         , Style "color: blue;" ]
-  --         [ text "sup"
-  --         , text "another" ]
-  --   render body mine
-
-  --   -- renderLoop
-
-  -- renderLoop
-
-  -- log (toJS {from=Int}{to=JSNumber} num)
-  -- log (toJS {from=String}{to=JSString} "hello")
-  -- body <- getBody
-  -- let mine : Node =
-  --   div
-  --   [ Listener "onClick" helloWorld
-  --   , Style "color: blue;" ]
-  --   [ text "sup"
-  --   , text "another" ]
-  -- render body mine
 
   pure ()
 
