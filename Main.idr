@@ -140,10 +140,16 @@ increment = do
   current <- get
   put (current + 1)
 
+
 renderLoop : JS_IO (State String ())
 renderLoop = do
   -- let a = execState increment $ 5
   -- let b = put "hey"
+  helloWorld
+  -- because it's in the wrong context?
+  t <- get
+  -- let t = lift
+  -- st <- lift get
   pure $ pure ()
   -- put "hey"
 --  putStr (show a)
