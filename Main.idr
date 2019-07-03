@@ -2,6 +2,9 @@ module Main
 
 import IdrisScript
 import Control.Monad.State
+import Control.Monad.Trans
+import Control.Monad.Identity
+-- import Control.ST
 
 data Attr = Text String
           | Listener String (JS_IO ())
@@ -106,7 +109,8 @@ app ptr (p::ps) = do
 -- Core algorithm
 --
 
-render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
+-- render : Ptr -> Node -> IO' (MkFFI JS_Types String String) ()
+render : Ptr -> Node -> JS_IO ()
 render parent node = do
   let type = type node
   let attributes = (attributes node)
@@ -131,15 +135,52 @@ getBody = do
   jscall "document.body"
     (JS_IO Ptr)
 
-increment : Int -> State Int ()
-increment inc = do
+increment : State Integer ()
+increment = do
   current <- get
-  put (current + inc)
+  put (current + 1)
+
+renderLoop : JS_IO (State String ())
+renderLoop = do
+  -- let a = execState increment $ 5
+  -- let b = put "hey"
+  pure $ pure ()
+  -- put "hey"
+--  putStr (show a)
+
+  -- body <- ?getBody
+  -- -- body <- getBody
+  -- let mine : Node =
+  --   div
+  --     [ Listener "onClick" helloWorld
+  --       , Style "color: blue;" ]
+  --       [ text "sup"
+  --       , text "another" ]
+
+  -- -- render ?a ?b
+  -- render body mine
+
+  -- renderLoop st
 
 main : JS_IO ()
 main = do
-  let num = execState (increment 5) 5
-  log (toJS {from=Int}{to=JSNumber} num)
+  -- let num = execState (increment 5) 5
+
+  let renderLoop = do
+    body <- getBody
+    let mine : Node =
+      div
+        [ Listener "onClick" helloWorld
+          , Style "color: blue;" ]
+          [ text "sup"
+          , text "another" ]
+    render body mine
+
+    -- renderLoop
+
+  renderLoop
+
+  -- log (toJS {from=Int}{to=JSNumber} num)
   -- log (toJS {from=String}{to=JSString} "hello")
   -- body <- getBody
   -- let mine : Node =
@@ -153,7 +194,6 @@ main = do
   pure ()
 
 
-
 -- Local Variables:
--- idris-load-packages: ("idrisscript")
+-- idris-load-packages: ("idrisscript" "contrib")
 -- End:
